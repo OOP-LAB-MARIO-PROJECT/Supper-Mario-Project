@@ -13,3 +13,21 @@ Actor::Actor(sf::Vector2f _pos, sf::Vector2f _vel, sf::Vector2f _size) :
 	rect.setPosition(pos);
 	rect.setSize(size);
 };
+
+
+void Actor::setPos(sf::Vector2f _pos) {
+	pos = _pos;
+	rect.setPosition(pos);
+}
+
+void Actor::setVel(sf::Vector2f _vel) {
+	vel = _vel;
+}
+
+void Actor::setSize(sf::Vector2f _size) {
+	size = _size;
+}
+
+sf::Vector2f Actor::getPos() const {
+	return pos;
+}

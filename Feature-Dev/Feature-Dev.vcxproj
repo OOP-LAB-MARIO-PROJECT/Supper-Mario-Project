@@ -139,12 +139,22 @@
   <ItemGroup>
     <ClCompile Include="Entities\Actor.cpp" />
     <ClCompile Include="Entities\Entity.cpp" />
+    <ClCompile Include="Entities\Player.cpp" />
+    <ClCompile Include="Game\Commands\Command.cpp" />
+    <ClCompile Include="Game\Commands\CommandController.cpp" />
+    <ClCompile Include="Game\Commands\KeyExecute.cpp" />
+    <ClCompile Include="Game\Commands\PlayerMovement.cpp" />
     <ClCompile Include="Game\GameController.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entities\Actor.h" />
     <ClInclude Include="Entities\Entity.h" />
+    <ClInclude Include="Entities\Player.h" />
+    <ClInclude Include="Game\Commands\Command.h" />
+    <ClInclude Include="Game\Commands\CommandController.h" />
+    <ClInclude Include="Game\Commands\KeyExecute.h" />
+    <ClInclude Include="Game\Commands\PlayerMovement.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

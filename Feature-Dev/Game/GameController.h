@@ -6,7 +6,9 @@
 
 
 #include "../Entities/Actor.h"
-
+#include "../Entities/PLayer.h"
+#include "Commands/KeyExecute.h"
+#include "Commands/CommandController.h"
 /*
 	Main game logic, singleton instance
 */
@@ -16,7 +18,10 @@ private:
 	GameController(const GameController&) = delete;
 	GameController& operator=(const GameController&) = delete;
 	
-	Actor* player = NULL;
+	KeyExecute keyHandler;
+	CommandController myCommand;
+
+	Player * player = NULL;
 	
 public:
 	static GameController& getInstance() {
@@ -25,9 +30,9 @@ public:
 	}
 
 	void startGame();
-	void update();
+	void update(sf::Event& event, float deltaTime);
 	void render(sf::RenderWindow& window);
 
 	void addEntity(std::shared_ptr<Entity> entity);
-	void setPlayer(Actor* player);
+	void setPlayer(Player* player);
 };
