@@ -1,9 +1,15 @@
 #include <SFML/Graphics.hpp>
-
+#include "Game/GameController.h"
+#include "Entities/Actor.h"
 int main()
 {
     // create the window
     sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+    GameController& game = GameController::getInstance();
+    game.startGame();
+
+    Actor player(sf::Vector2f(50, 50), sf::Vector2f(0, 10), sf::Vector2f(50, 50));
+    game.setPlayer(&player);
 
     // run the program as long as the window is open
     while (window.isOpen())
@@ -19,11 +25,8 @@ int main()
 
         // clear the window with black color
         window.clear(sf::Color::Black);
-
-        // draw everything here...
-        // window.draw(...);
-
-        // end the current frame
+        game.update();
+        game.render(window);
         window.display();
     }
 
