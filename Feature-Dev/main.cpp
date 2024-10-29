@@ -7,9 +7,13 @@
 int main()
 {
     // create the window
+
+    ///// Do not touch
     sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
     GameController& game = GameController::getInstance();
-    
+    ///// End do not touch
+
+
     //// init game
 
 
@@ -22,9 +26,10 @@ int main()
 
 
     window.setFramerateLimit(60);
-    
 
 
+
+    ///// Do not touch
 
     ////////// game start
     game.startGame();
@@ -56,6 +61,7 @@ int main()
         game.render(window);
         window.display();
     }
+    ///// End do not touch
 
     return 0;
 }

@@ -8,9 +8,11 @@ void GameController::startGame() {
 
 	myCommand.setMoveLeft(new MoveLeft(player));
 	myCommand.setMoveRight(new MoveRight(player));
+	myCommand.setJump(new Jump(player));
 
 	keyHandler.addCommand(sf::Keyboard::A, myCommand.getMvLeft());
 	keyHandler.addCommand(sf::Keyboard::D, myCommand.getMvRight());
+	keyHandler.addCommand(sf::Keyboard::Space, myCommand.getJump());
 }
 
 void GameController::update(sf::Event& event, float deltaTime) {
