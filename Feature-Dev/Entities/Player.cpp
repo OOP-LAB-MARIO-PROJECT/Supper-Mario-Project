@@ -1,20 +1,26 @@
 #include "Player.h"
-
+#include <limits>
 void Player::setHealth(int _health) {
 	health = _health;
 };
-void Player::setSpeed(float _speed) {
-	speed = _speed;
+
+Player::Player(sf::Vector2f _pos, sf::Vector2f _size) :
+	Actor(_pos, _size) {
+
 };
 
-int Player::getHealth() const {
-	return health;
+void Player::update(float deltaTime) {
+
+
+	if (facing == 0)
+		setVel({ 0, getVel().y });
+
+
+	sf::Vector2f vx = getVel();
+	bool isCollide = resolveCollideGround(map->getTiles(), deltaTime);
+	if (getPos().y > 800) setVel(sf::Vector2f(getVel().x, 0));
+	if (isCollide) std::cout << "collidiing!!!!!!!1\n";
+	isOnGround = isCollide;
+	setPos(getPos() + getVel() * deltaTime);
+	performPhysics(deltaTime);
 }
-
-float Player::getSpeed() const {
-	return speed;
-}
-
-Player::Player(sf::Vector2f _pos, sf::Vector2f _vel, sf::Vector2f _size) :
-	Actor(_pos, _vel, _size) {};
-

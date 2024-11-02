@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "Game/GameController.h"
 #include "Entities/Actor.h"
+#include "Entities/Map.h"
 #include "Entities/Player.h"
 #include <iostream>
 
@@ -9,21 +10,32 @@ int main()
     // create the window
 
     ///// Do not touch
-    sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+    sf::RenderWindow window(sf::VideoMode(1200, 1200), "My window");
     GameController& game = GameController::getInstance();
     ///// End do not touch
 
 
     //// init game
 
+    sf::RectangleShape tmp(sf::Vector2f(50, 50));
+    tmp.setFillColor(sf::Color::Red);
+    tmp.setPosition(sf::Vector2f(0, 0));
+    window.draw(tmp);
 
-    Player player(sf::Vector2f(50, 50), sf::Vector2f(0, 10), sf::Vector2f(50, 50));
+    std::cout << tmp.getOrigin().x << ' ' << tmp.getOrigin().y << '\n';
+
+    Player player(sf::Vector2f(50, 50), sf::Vector2f(50, 50));
+
+    Map gameMap;
+    for (int i = 0; i < 20; i++)
+        gameMap.addTile(Tile(sf::Vector2f(50 * i, 600), sf::Vector2f(50, 50), 0));
+
+    for (int i = 0; i < 5; i++)
+        gameMap.addTile(Tile(sf::Vector2f(400, -50 * i + 600), sf::Vector2f(50, 50), 0));
+
+    player.setMap(&gameMap);
     game.setPlayer(&player);
-
-
-
-
-
+    game.setMap(&gameMap);
 
     window.setFramerateLimit(60);
 
@@ -51,7 +63,6 @@ int main()
                 window.close();
             //else if (event.type == sf::Event::KeyPressed)
             if (event.type == sf::Event::KeyPressed) {
-                std::cout << event.type << " ----------\n";
                 game.update(event, deltaTime);
             }
         }
@@ -59,6 +70,8 @@ int main()
         // clear the window with black color
         game.update(event, deltaTime);
         game.render(window);
+        window.draw(tmp);
+
         window.display();
     }
     ///// End do not touch

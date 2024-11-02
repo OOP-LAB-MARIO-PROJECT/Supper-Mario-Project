@@ -6,9 +6,11 @@ void MoveLeft::setDeltaTime(float _deltaTime) {
 }
 
 void MoveLeft::execute() {
-	std::cout << "old pos " << player->getPos().x << ' ' << player->getPos().y << '\n';
-	player->setPos(player->getPos() + player->getSpeed() * sf::Vector2f(-1, 0));
-	std::cout << "new pos " << player->getPos().x << ' ' << player->getPos().y << '\n';
+	player->moveLeft(deltaTime);
+}
+
+
+void MoveLeft::deExecute() {
 }
 
 
@@ -17,10 +19,10 @@ void MoveRight::setDeltaTime(float _deltaTime) {
 }
 
 void MoveRight::execute() {
-	std::cout << "old pos " << player->getPos().x << ' ' << player->getPos().y << '\n';
-	player->setPos(player->getPos() + player->getSpeed() * sf::Vector2f(1, 0));
+	player->moveRight(deltaTime);
+}
 
-	std::cout << "new pos " << player->getPos().x << ' ' << player->getPos().y << '\n';
+void MoveRight::deExecute() {
 }
 
 
@@ -29,5 +31,30 @@ void Jump::setDeltaTime(float _deltaTime) {
 }
 
 void Jump::execute() {
-	std::cout << "Jumping hehehe\n";
+	std::cout << "Jump" << '\n';
+	player->jump(deltaTime);
+}
+
+
+void MoveUp::setDeltaTime(float _deltaTime) {
+	deltaTime = _deltaTime;
+}
+
+void MoveUp::execute() {
+}
+
+
+void MoveUp::deExecute() {
+}
+
+
+
+void MoveDown::setDeltaTime(float _deltaTime) {
+	deltaTime = _deltaTime;
+}
+
+void MoveDown::execute() {
+}
+
+void MoveDown::deExecute() {
 }
