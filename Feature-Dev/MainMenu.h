@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "SFML\Graphics.hpp"
 #include "Button.h"
+#include "Game/GameController.h"
 #include <iostream>
 #include <vector>
 using namespace sf;
@@ -18,6 +19,7 @@ private:
 public:
 	MainMenu();
 	~MainMenu();
+	Button getButton(int index);
 	void init();
 	void loopEvents();
 	void drawMenu();

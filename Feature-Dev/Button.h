@@ -35,4 +35,5 @@ public:
     // Hàm để tạo nút
     static Button createButton(const sf::Vector2f& size, const sf::Vector2f& position, const sf::Color& defaultCol, const sf::Color& hoverCol,
         const sf::Color& pressedCol, const std::function<void()>& onClickCallback);
+	bool isButtonPressed();
 };

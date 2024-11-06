@@ -7,34 +7,34 @@
 
 int main()
 {
-    // create the window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
-    GameController& game = GameController::getInstance();
-    
-    //// init game
+ //   // create the window
+ //   sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+ //   GameController& game = GameController::getInstance();
+ //   
+ //   //// init game
 
 
-    Player player(sf::Vector2f(50, 50), sf::Vector2f(0, 10), sf::Vector2f(50, 50));
-    game.setPlayer(&player);
-
-
-
+ //   Player player(sf::Vector2f(50, 50), sf::Vector2f(0, 10), sf::Vector2f(50, 50));
+ //   game.setPlayer(&player);
 
 
 
-    window.setFramerateLimit(60);
-    
 
 
 
-    ////////// game start
-    game.startGame();
+ //   window.setFramerateLimit(60);
+ //   
 
-    sf::Clock clock;
-    clock.restart();
 
-	MainMenu mainMenu;
-    mainMenu.runMenu();
+
+ //   ////////// game start
+ //   game.startGame();
+
+ //   sf::Clock clock;
+ //   clock.restart();
+
+	//MainMenu mainMenu;
+ //   mainMenu.runMenu();
     // run the program as long as the window is open
     //while (window.isOpen())
     //{
@@ -60,6 +60,6 @@ int main()
     //    game.render(window);
     //    window.display();
     //}
-
+    return EXIT_SUCCESS
     return 0;
 }

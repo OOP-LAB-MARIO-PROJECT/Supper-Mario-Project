@@ -20,11 +20,17 @@ void MainMenu::init()
 	}
 }
 
+Button MainMenu::getButton(int index)
+{
+	return buttons[index];
+}
+
 MainMenu::MainMenu()
 {
+
 	window = new RenderWindow();
 	Button startGame = Button::createButton(Vector2f(200, 100), Vector2f(300, 250), Color::Yellow, Color::Blue, Color::Green,
-		[]() { }); // thay start bằng hàm vô thẳng vào game
+		[]() {}); // thay start bằng hàm vô thẳng vào game
 	buttons.push_back(startGame);
 	Button exit = Button::createButton(Vector2f(200, 100), Vector2f(300, 100), Color::Yellow, Color::Blue, Color::Green,
 		[this]() {window->close(); }); //thay exit bằng hàm thoát game
@@ -76,4 +82,3 @@ void MainMenu::runMenu()
 		drawMenu();
 	}
 }
-

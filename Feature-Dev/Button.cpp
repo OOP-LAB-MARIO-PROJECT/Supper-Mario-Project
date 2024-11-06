@@ -74,3 +74,7 @@ Button Button::createButton(const sf::Vector2f& size, const sf::Vector2f& positi
     button.setOnClick(onClickCallback); // Thiết lập hàm gọi lại
     return button; // Trả về nút đã cấu hình
 }
+bool Button::isButtonPressed()
+{
+	return isPressed;
+}
