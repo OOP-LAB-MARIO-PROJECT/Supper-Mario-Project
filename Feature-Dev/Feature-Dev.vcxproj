@@ -137,6 +137,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\mario - feature dev\Feature-Dev\Button.cpp" />
+    <ClCompile Include="..\..\mario - feature dev\Feature-Dev\MainMenu.cpp" />
+    <ClCompile Include="..\..\mario - feature dev\Feature-Dev\NavigationManager.cpp" />
     <ClCompile Include="Entities\Actor.cpp" />
     <ClCompile Include="Entities\Entity.cpp" />
     <ClCompile Include="Entities\Player.cpp" />
@@ -148,6 +151,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\mario - feature dev\Feature-Dev\Button.h" />
+    <ClInclude Include="..\..\mario - feature dev\Feature-Dev\MainMenu.h" />
+    <ClInclude Include="..\..\mario - feature dev\Feature-Dev\NavigationManager.h" />
     <ClInclude Include="Entities\Actor.h" />
     <ClInclude Include="Entities\Entity.h" />
     <ClInclude Include="Entities\Player.h" />
@@ -155,6 +161,9 @@
     <ClInclude Include="Game\Commands\CommandController.h" />
     <ClInclude Include="Game\Commands\KeyExecute.h" />
     <ClInclude Include="Game\Commands\PlayerMovement.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\..\mario - feature dev\Feature-Dev\Roboto-Medium.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
