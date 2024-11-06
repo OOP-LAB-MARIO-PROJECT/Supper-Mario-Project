@@ -2,6 +2,7 @@
 #include "Game/GameController.h"
 #include "Entities/Actor.h"
 #include "Entities/Player.h"
+#include "MainMenu.h"
 #include <iostream>
 
 int main()
@@ -31,31 +32,34 @@ int main()
 
     sf::Clock clock;
     clock.restart();
+
+	MainMenu mainMenu;
+    mainMenu.runMenu();
     // run the program as long as the window is open
-    while (window.isOpen())
-    {
+    //while (window.isOpen())
+    //{
 
-        float deltaTime = clock.restart().asSeconds();
-        window.clear(sf::Color::Black);
+    //    float deltaTime = clock.restart().asSeconds();
+    //    window.clear(sf::Color::Black);
 
-        // check all the window's events that were triggered since the last iteration of the loop
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-            //else if (event.type == sf::Event::KeyPressed)
-            if (event.type == sf::Event::KeyPressed) {
-                std::cout << event.type << " ----------\n";
-                game.update(event, deltaTime);
-            }
-        }
+    //    // check all the window's events that were triggered since the last iteration of the loop
+    //    sf::Event event;
+    //    while (window.pollEvent(event))
+    //    {
+    //        if (event.type == sf::Event::Closed)
+    //            window.close();
+    //        //else if (event.type == sf::Event::KeyPressed)
+    //        if (event.type == sf::Event::KeyPressed) {
+    //            std::cout << event.type << " ----------\n";
+    //            game.update(event, deltaTime);
+    //        }
+    //    }
 
-        // clear the window with black color
-        game.update(event, deltaTime);
-        game.render(window);
-        window.display();
-    }
+    //    // clear the window with black color
+    //    game.update(event, deltaTime);
+    //    game.render(window);
+    //    window.display();
+    //}
 
     return 0;
 }
