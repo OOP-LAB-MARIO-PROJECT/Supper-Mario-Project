@@ -148,6 +148,7 @@
     <ClCompile Include="Game\Commands\PlayerMovement.cpp" />
     <ClCompile Include="Game\GameController.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Utils\Camera.cpp" />
     <ClCompile Include="Utils\Collision.cpp" />
     <ClCompile Include="Utils\CollisionHandler.cpp" />
     <ClCompile Include="Utils\Physics.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="Game\Commands\CommandController.h" />
     <ClInclude Include="Game\Commands\KeyExecute.h" />
     <ClInclude Include="Game\Commands\PlayerMovement.h" />
+    <ClInclude Include="Utils\Camera.h" />
     <ClInclude Include="Utils\Collision.h" />
     <ClInclude Include="Utils\CollisionHandler.h" />
     <ClInclude Include="Utils\Physics.h" />

@@ -3,6 +3,7 @@
 #include "Entities/Actor.h"
 #include "Entities/Map.h"
 #include "Entities/Player.h"
+#include "Utils/Camera.h"
 #include <iostream>
 
 int main()
@@ -10,7 +11,7 @@ int main()
     // create the window
 
     ///// Do not touch
-    sf::RenderWindow window(sf::VideoMode(1200, 1200), "My window");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
     GameController& game = GameController::getInstance();
     ///// End do not touch
 
@@ -33,7 +34,8 @@ int main()
     game.setPlayer(&player);
     game.setMap(&gameMap);
     window.setFramerateLimit(60);
-
+    
+    Camera camera(window);
 
 
     ///// Do not touch
@@ -61,6 +63,10 @@ int main()
                 game.update(event, deltaTime);
             }
         }
+
+        camera.followPlayer(player.getPos().x, player.getPos().y, player.getHitbox().getSize().x, player.getHitbox().getSize().y);
+
+        camera.setCameraView(window);
 
         // clear the window with black color
         game.update(event, deltaTime);
