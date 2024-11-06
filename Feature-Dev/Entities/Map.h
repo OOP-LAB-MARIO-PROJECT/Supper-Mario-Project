@@ -2,6 +2,8 @@
 
 #include "Tile.h"
 #include <vector>
+#include <fstream>
+#include <iostream>
 
 class Map {
 private:
@@ -11,19 +13,12 @@ public:
 	Map() {};
 	~Map() {};
 
-	void addTile(const Tile& tile) {
-		map.push_back(tile);
-	};
+	void addTile(const Tile& tile);
+	void renderMap(sf::RenderWindow& window);
+	std::vector <sf::RectangleShape> getTiles();
 
-	void renderMap(sf::RenderWindow& window) {
-		for (const Tile& t : map)
-			t.render(window);
-	};
+	std::vector <sf::RectangleShape> getNearTiles(sf::Vector2f pos);
+	void loadMap(const std::string& filename);
 
-	std::vector <sf::RectangleShape> getTiles() {
-		std::vector <sf::RectangleShape> ans;
-		for (Tile t : map) ans.push_back(t.getHitbox());
-		return ans;
-	}
 };
 

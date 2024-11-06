@@ -27,11 +27,7 @@ int main()
     Player player(sf::Vector2f(50, 50), sf::Vector2f(32, 32));
 
     Map gameMap;
-    for (int i = 0; i < 20; i++)
-        gameMap.addTile(Tile(sf::Vector2f(64 * i, 600), sf::Vector2f(32, 32), 0));
-
-    for (int i = 0; i < 5; i++)
-        gameMap.addTile(Tile(sf::Vector2f(400, -32 * i + 600), sf::Vector2f(32, 32), 0));
+    gameMap.loadMap("Assets/map.txt");
 
     player.setMap(&gameMap);
     game.setPlayer(&player);
