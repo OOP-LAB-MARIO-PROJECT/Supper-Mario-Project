@@ -23,7 +23,7 @@ void Player::update(float deltaTime) {
 	isOnGround = isCollide & (1 << 2);
 	
 	if (isOnGround)
-		setFric({ 10, 0 });
+		setFric({ 10, 0 }), isJumping = false;
 	else
 		setFric({ 0, 0 });
 
