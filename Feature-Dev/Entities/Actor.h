@@ -26,14 +26,12 @@ public:
 	void render(sf::RenderWindow& window) const override;
 	void setPos(sf::Vector2f pos);
 	void setSize(sf::Vector2f size);
-	bool resolveCollideGround(std::vector <sf::RectangleShape> vi, float deltaTime);
+	int resolveCollideGround(std::vector <sf::RectangleShape> vi, float deltaTime);
 
 	sf::RectangleShape& getHitbox();
 	sf::Vector2f getPos() const;
 	
-
 	void moveLeft(float dt);
 	void moveRight(float dt);
-	void jump(float dt);
 };
 

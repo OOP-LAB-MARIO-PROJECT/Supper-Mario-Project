@@ -9,6 +9,8 @@ private:
 	int facing = 1;
 	int moving = 0;
 	Map* map = NULL;
+	bool reachMaxHeight = false;
+	bool isJumping = false;
 
 public:
 
@@ -16,6 +18,8 @@ public:
 	void setHealth(int _health);
 	void update(float deltatime);
 	void setMap(Map* mp) { map = mp; };
+
+	void jump(float dt);
 
 };
 

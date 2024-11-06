@@ -15,8 +15,8 @@ void GameController::startGame() {
 	keyHandler.addCommand(sf::Keyboard::A, myCommand.getMvLeft());
 	keyHandler.addCommand(sf::Keyboard::D, myCommand.getMvRight());
 	keyHandler.addCommand(sf::Keyboard::S, myCommand.getMvDown());
-	keyHandler.addCommand(sf::Keyboard::W, myCommand.getMvUp());
-	keyHandler.addCommand(sf::Keyboard::H, myCommand.getJump());
+	keyHandler.addCommand(sf::Keyboard::Space, myCommand.getMvUp());
+	keyHandler.addCommand(sf::Keyboard::W, myCommand.getJump());
 
 	// load map from class map
 
@@ -33,11 +33,6 @@ void GameController::render(sf::RenderWindow& window) {
 	player->render(window);
 	myMap->renderMap(window);
 	//std::cout << "rendered\n";
-}
-
-
-void GameController::addEntity(std::shared_ptr<Entity> entity) {
-//    entities.push_back(entity);
 }
 
 void GameController::setPlayer(Player* _player) {

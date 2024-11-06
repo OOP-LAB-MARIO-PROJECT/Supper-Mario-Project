@@ -14,6 +14,7 @@
 #include "Commands/CommandController.h"
 
 #include "../Utils/Collision.h"
+#include "../Utils/EntityManager.h"
 
 /*
 	Main game logic, singleton instance
@@ -26,6 +27,8 @@ private:
 	
 	KeyExecute keyHandler;
 	CommandController myCommand;
+	EntityManager myEntityManager;
+
 
 	Player* player = NULL;
 	Map* myMap = NULL;
@@ -43,8 +46,6 @@ public:
 	void startGame();
 	void update(sf::Event& event, float deltaTime);
 	void render(sf::RenderWindow& window);
-
-	void addEntity(std::shared_ptr<Entity> entity);
 	void setPlayer(Player* player);
 	void setMap(Map* map);
 };

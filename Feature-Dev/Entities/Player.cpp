@@ -17,10 +17,34 @@ void Player::update(float deltaTime) {
 
 
 	sf::Vector2f vx = getVel();
-	bool isCollide = resolveCollideGround(map->getNearTiles(getPos()), deltaTime);
+	int isCollide = resolveCollideGround(map->getNearTiles(getPos()), deltaTime);
 	if (getPos().y > 800) setVel(sf::Vector2f(getVel().x, 0));
 	//if (isCollide) std::cout << "collidiing!!!!!!!1\n";
-	isOnGround = isCollide;
+	isOnGround = isCollide & (1 << 2);
+	
+	if (isOnGround)
+		setFric({ 10, 0 });
+	else
+		setFric({ 0, 0 });
+
 	setPos(getPos() + getVel() * deltaTime);
 	performPhysics(deltaTime);
+}
+
+
+void Player::jump(float dt) {
+	if (isOnGround && !isJumping) {
+		setVel({ getVel().x, -80 });
+		isOnGround = false;
+		reachMaxHeight = false;
+		isJumping = true;
+	}
+	else if (isJumping) {
+		if (reachMaxHeight) return;
+		sf::Vector2f newVel = getVel();
+		newVel += sf::Vector2f(0, -500) * dt;
+		if (newVel.y < -160.f)
+			newVel.y = -160.f, reachMaxHeight = true;
+		setVel(newVel);
+	}
 }

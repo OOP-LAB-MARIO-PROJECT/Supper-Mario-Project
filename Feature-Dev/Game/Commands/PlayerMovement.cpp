@@ -9,11 +9,9 @@ void MoveLeft::execute() {
 	player->moveLeft(deltaTime);
 }
 
-
 void MoveLeft::deExecute() {
 
 }
-
 
 void MoveRight::setDeltaTime(float _deltaTime) {
 	deltaTime = _deltaTime;
@@ -26,7 +24,6 @@ void MoveRight::execute() {
 void MoveRight::deExecute() {
 }
 
-
 void Jump::setDeltaTime(float _deltaTime) {
 	deltaTime = _deltaTime;
 }
@@ -36,7 +33,6 @@ void Jump::execute() {
 	player->jump(deltaTime);
 }
 
-
 void MoveUp::setDeltaTime(float _deltaTime) {
 	deltaTime = _deltaTime;
 }
@@ -44,11 +40,8 @@ void MoveUp::setDeltaTime(float _deltaTime) {
 void MoveUp::execute() {
 }
 
-
 void MoveUp::deExecute() {
 }
-
-
 
 void MoveDown::setDeltaTime(float _deltaTime) {
 	deltaTime = _deltaTime;

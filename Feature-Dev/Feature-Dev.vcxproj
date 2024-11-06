@@ -150,6 +150,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utils\Collision.cpp" />
     <ClCompile Include="Utils\CollisionHandler.cpp" />
+    <ClCompile Include="Utils\EntityManager.cpp" />
     <ClCompile Include="Utils\Physics.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +165,7 @@
     <ClInclude Include="Game\Commands\PlayerMovement.h" />
     <ClInclude Include="Utils\Collision.h" />
     <ClInclude Include="Utils\CollisionHandler.h" />
+    <ClInclude Include="Utils\EntityManager.h" />
     <ClInclude Include="Utils\Physics.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

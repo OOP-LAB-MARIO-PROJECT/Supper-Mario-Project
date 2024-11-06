@@ -23,6 +23,7 @@ public:
 
 	void setGravity(vt f);
 	void setVel(vt f);
+	void setFric(vt f);
 	
 	vt getVel() const;
 	void performPhysics(float deltaTime);

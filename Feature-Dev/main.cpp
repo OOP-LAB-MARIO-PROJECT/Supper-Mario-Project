@@ -17,12 +17,6 @@ int main()
 
     //// init game
 
-    sf::RectangleShape tmp(sf::Vector2f(50, 50));
-    tmp.setFillColor(sf::Color::Red);
-    tmp.setPosition(sf::Vector2f(0, 0));
-    window.draw(tmp);
-
-    std::cout << tmp.getOrigin().x << ' ' << tmp.getOrigin().y << '\n';
 
     Player player(sf::Vector2f(50, 50), sf::Vector2f(32, 32));
 
@@ -56,17 +50,11 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
-            //else if (event.type == sf::Event::KeyPressed)
-            if (event.type == sf::Event::KeyPressed) {
-                game.update(event, deltaTime);
-            }
         }
 
         // clear the window with black color
         game.update(event, deltaTime);
         game.render(window);
-        window.draw(tmp);
-
         window.display();
     }
     ///// End do not touch

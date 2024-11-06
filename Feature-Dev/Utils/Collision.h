@@ -43,7 +43,7 @@ public:
 	* remember to put in deltatime
 	*/
 
-	vt rectVsTerain(sf::RectangleShape dynamicRect, std::vector <sf::RectangleShape> ground, vt vel, float deltaTime, vt& pos);
+	vt rectVsTerain(sf::RectangleShape dynamicRect, std::vector <sf::RectangleShape> ground, vt vel, float deltaTime, vt& pos, int& direction);
 
 #undef vt
 };

@@ -12,29 +12,11 @@ private:
 
 public:
 	
-	Tile(sf::Vector2f _pos, sf::Vector2f _size, bool isTrans = true) {
-		pos = _pos;
-		size = _size;
-		isTransparent = isTrans;
-
-		hitbox.setPosition(pos);
-		hitbox.setSize(size);
-		hitbox.setFillColor(sf::Color::Magenta);
-		hitbox.setOutlineColor(sf::Color::Blue);
-		hitbox.setOutlineThickness(2);
-	};
-
+	Tile(sf::Vector2f _pos, sf::Vector2f _size, bool isTrans = true);
 	~Tile() {};
-
-	void render(sf::RenderWindow& window) const override {
-		window.draw(hitbox);
-	}
-
-	void update(float deltaTime) {};
-
-	sf::RectangleShape& getHitbox() {
-		return hitbox;
-	}
+	void render(sf::RenderWindow& window) const override;
+	void update(float deltaTime);
+	sf::RectangleShape& getHitbox();
 
 };
 

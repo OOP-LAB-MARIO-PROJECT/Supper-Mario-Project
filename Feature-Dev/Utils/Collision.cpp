@@ -114,7 +114,7 @@ bool Collision::resolveDynamicRectVsRect(rect& r_dynamic, const float fTimeStep,
 	return false;
 }
 
-vt Collision::rectVsTerain(sf::RectangleShape dynamicRect, std::vector <sf::RectangleShape> ground, vt vel, float deltaTime, vt& pos) {
+vt Collision::rectVsTerain(sf::RectangleShape dynamicRect, std::vector <sf::RectangleShape> ground, vt vel, float deltaTime, vt& pos, int& direction) {
 
 	rect dr = { dynamicRect.getPosition(), dynamicRect.getSize(), vel };
 	dr.pos = dynamicRect.getPosition();
@@ -150,7 +150,14 @@ vt Collision::rectVsTerain(sf::RectangleShape dynamicRect, std::vector <sf::Rect
 		resolveDynamicRectVsRect(dr, deltaTime, j.first, vel);
 	}
 
+
+
 	pos = dr.pos;
+	direction = 0;
+
+	for (int i = 0; i < 4; i++)
+		if (dr.contact[i] != nullptr)
+			direction |= 1 << i;
 
 	return vel;
 }

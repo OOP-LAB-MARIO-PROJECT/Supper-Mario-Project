@@ -16,6 +16,10 @@ void Physics::setVel(vt f) {
 	vel = f;
 }
 
+void Physics::setFric(vt f) {
+	fric = f;
+}
+
 void Physics::performPhysics(float dt) {
 	if (vel.x < 0) {
 		vel += fric;
