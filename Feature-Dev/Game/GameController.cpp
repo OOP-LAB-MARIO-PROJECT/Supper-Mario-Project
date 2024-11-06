@@ -25,9 +25,6 @@ void GameController::startGame() {
 void GameController::update(sf::Event& event, float deltaTime) {
 	myCommand.setDeltaTime(deltaTime);
 	keyHandler.handleInput();
-	
-
-
 	player->update(deltaTime);
 }
 

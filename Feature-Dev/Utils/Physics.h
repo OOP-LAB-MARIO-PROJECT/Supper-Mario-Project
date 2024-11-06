@@ -34,7 +34,7 @@ private:
 
 	vt vel = { 0,0 };
 	vt g = { 0, 0};
-	vt fric = { 20, 0 };
+	vt fric = { 10, 0 };
 
 public:
 

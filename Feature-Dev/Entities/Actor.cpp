@@ -34,20 +34,12 @@ sf::RectangleShape& Actor::getHitbox() {
 }
 
 void Actor::moveLeft(float dt) {
-	if (facing == 1) {
-		facing = 0;
-		return;
-	}
 
 	facing = -1;
 	setVel({ -70, getVel().y});
 }
 
 void Actor::moveRight(float dt) {
-	if (facing == -1) {
-		facing = 0;
-		return;
-	}
 
 	facing = 1;
 	setVel({ 70, getVel().y });
@@ -69,8 +61,8 @@ bool Actor::resolveCollideGround(std::vector <sf::RectangleShape> vi, float delt
 	//std::cout << getVel().x << ' ' << getVel().y << '\n';
 	sf::Vector2f expected = rectVsTerain(rect, vi, getVel(), deltaTime, pos);
 	if (expected == getVel()) return false;
-	std::cout << "pos " << getPos().x << ' ' << getPos().y << ' ' << pos.x << ' ' << pos.y << '\n';
-	std::cout << "vel " << getVel().x << ' ' << getVel().y << ' ' << expected.x << ' ' << expected.y << '\n';
+	/*std::cout << "pos " << getPos().x << ' ' << getPos().y << ' ' << pos.x << ' ' << pos.y << '\n';
+	std::cout << "vel " << getVel().x << ' ' << getVel().y << ' ' << expected.x << ' ' << expected.y << '\n';*/
 
 	setVel(expected);
 	setPos(pos);

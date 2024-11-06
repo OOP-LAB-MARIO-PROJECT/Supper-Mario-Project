@@ -127,8 +127,8 @@ public:
 			vt a = vt(std::abs(r_dynamic.vel.x), std::abs(r_dynamic.vel.y));
 			r_dynamic.pos += vt(a.x * contact_normal.x, a.y * contact_normal.y) * (1 - contact_time) * fTimeStep;
 
-			pushback += vt(a.x * contact_normal.x, a.y * contact_normal.y) * (1 - contact_time) * 1.001f;
-			std::cout << "wh is true: " << r_dynamic.pos.x << ' ' << r_dynamic.pos.y << '\n';;
+			pushback += vt(a.x * contact_normal.x, a.y * contact_normal.y) * (1 - contact_time);
+			//std::cout << "wh is true: " << r_dynamic.pos.x << ' ' << r_dynamic.pos.y << '\n';;
 			return true;
 		}
 
@@ -162,8 +162,8 @@ public:
 				z.emplace_back(tmp, ct);
 		}
 
-		if (!z.empty())
-			std::cout << "Number of collision: " << z.size() << ' ' << ground.size() << '\n';
+		//if (!z.empty())
+		//	std::cout << "Number of collision: " << z.size() << ' ' << ground.size() << '\n';
 
 		std::sort(z.begin(), z.end(), [](const std::pair<rect, float>& a, const std::pair<rect, float>& b)
 			{
@@ -172,7 +172,7 @@ public:
 
 		if (z.empty()) return vel;
 		for (std::pair<rect, float>& j : z) {
-			if (j.first.pos.y < 600) std::cout << j.first.pos.y << '\n';
+			//if (j.first.pos.y < 600) std::cout << j.first.pos.y << '\n';
 			resolveDynamicRectVsRect(dr, deltaTime, j.first, vel);
 		}
 
