@@ -141,7 +141,6 @@
     <ClCompile Include="Entities\Actor.cpp" />
     <ClCompile Include="Entities\Entity.cpp" />
     <ClCompile Include="Entities\Player.cpp" />
-    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Game\Commands\Command.cpp" />
     <ClCompile Include="Game\Commands\CommandController.cpp" />
     <ClCompile Include="Game\Commands\KeyExecute.cpp" />
@@ -150,23 +149,18 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="NavigationManager.cpp" />
-    <ClCompile Include="StateMachine.cpp" />
-    <ClCompile Include="States.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="Entities\Actor.h" />
     <ClInclude Include="Entities\Entity.h" />
     <ClInclude Include="Entities\Player.h" />
-    <ClInclude Include="Game.h" />
     <ClInclude Include="Game\Commands\Command.h" />
     <ClInclude Include="Game\Commands\CommandController.h" />
     <ClInclude Include="Game\Commands\KeyExecute.h" />
     <ClInclude Include="Game\Commands\PlayerMovement.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="NavigationManager.h" />
-    <ClInclude Include="StateMachine.h" />
-    <ClInclude Include="States.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="..\..\mario - feature dev\Feature-Dev\Roboto-Medium.ttf" />
