@@ -3,27 +3,28 @@
 #include "Entities/Actor.h"
 #include "Entities/Player.h"
 #include "MainMenu.h"
+#include "NavigationManager.h"
 #include <iostream>
 
 int main()
 {
- //   // create the window
- //   sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
- //   GameController& game = GameController::getInstance();
- //   
- //   //// init game
+    // create the window
+    sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+    GameController& game = GameController::getInstance();
+    
+    //// init game
 
 
- //   Player player(sf::Vector2f(50, 50), sf::Vector2f(0, 10), sf::Vector2f(50, 50));
- //   game.setPlayer(&player);
-
-
+    Player player(sf::Vector2f(50, 50), sf::Vector2f(0, 10), sf::Vector2f(50, 50));
+    game.setPlayer(&player);
 
 
 
 
- //   window.setFramerateLimit(60);
- //   
+    window.setFramerateLimit(60);
+    
+	MainMenu mainMenu(game);
+   
 
 
 
@@ -60,6 +61,6 @@ int main()
     //    game.render(window);
     //    window.display();
     //}
-    return EXIT_SUCCESS
+    /*return EXIT_SUCCESS*/
     return 0;
 }

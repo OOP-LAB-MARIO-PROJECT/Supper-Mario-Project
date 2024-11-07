@@ -149,6 +149,7 @@
     <ClCompile Include="Game\GameController.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="NavigationManager.cpp" />
     <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="States.cpp" />
   </ItemGroup>
@@ -163,6 +164,7 @@
     <ClInclude Include="Game\Commands\KeyExecute.h" />
     <ClInclude Include="Game\Commands\PlayerMovement.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="NavigationManager.h" />
     <ClInclude Include="StateMachine.h" />
     <ClInclude Include="States.h" />
   </ItemGroup>

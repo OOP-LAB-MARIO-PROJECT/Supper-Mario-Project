@@ -25,12 +25,13 @@ Button MainMenu::getButton(int index)
 	return buttons[index];
 }
 
-MainMenu::MainMenu()
+MainMenu::MainMenu(GameController& game)
 {
-
+	
 	window = new RenderWindow();
+	NavigationManager::Screen screen = NavigationManager::Screen::MainMenu;
 	Button startGame = Button::createButton(Vector2f(200, 100), Vector2f(300, 250), Color::Yellow, Color::Blue, Color::Green,
-		[]() {}); // thay start bằng hàm vô thẳng vào game
+		[screen, &game, this]{ NavigationManager::getInstance().navigate(screen, game, *this); }); // thay start bằng hàm vô thẳng vào game
 	buttons.push_back(startGame);
 	Button exit = Button::createButton(Vector2f(200, 100), Vector2f(300, 100), Color::Yellow, Color::Blue, Color::Green,
 		[this]() {window->close(); }); //thay exit bằng hàm thoát game
@@ -40,7 +41,7 @@ MainMenu::MainMenu()
 
 MainMenu::~MainMenu()
 {
-	delete[] window;
+	delete window;
 }
 
 void MainMenu::loopEvents()
