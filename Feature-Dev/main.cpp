@@ -1,30 +1,38 @@
 #include <SFML/Graphics.hpp>
 #include "Game/GameController.h"
 #include "Entities/Actor.h"
+#include "Entities/Map.h"
 #include "Entities/Player.h"
+#include "Utils/Camera.h"
 #include <iostream>
 
 int main()
 {
     // create the window
+
+    ///// Do not touch
     sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
     GameController& game = GameController::getInstance();
-    
+    ///// End do not touch
+
+
     //// init game
 
 
-    Player player(sf::Vector2f(50, 50), sf::Vector2f(0, 10), sf::Vector2f(50, 50));
+    Player player(sf::Vector2f(50, 50), sf::Vector2f(32, 32));
+
+    Map gameMap;
+    gameMap.loadMap("Assets/map.txt");
+
+    player.setMap(&gameMap);
     game.setPlayer(&player);
-
-
-
-
-
-
+    game.setMap(&gameMap);
     window.setFramerateLimit(60);
     
+    Camera camera(window);
 
 
+    ///// Do not touch
 
     ////////// game start
     game.startGame();
@@ -44,18 +52,18 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
-            //else if (event.type == sf::Event::KeyPressed)
-            if (event.type == sf::Event::KeyPressed) {
-                std::cout << event.type << " ----------\n";
-                game.update(event, deltaTime);
-            }
         }
+
+        camera.followPlayer(player.getPos().x, player.getPos().y, player.getHitbox().getSize().x, player.getHitbox().getSize().y);
+
+        camera.setCameraView(window);
 
         // clear the window with black color
         game.update(event, deltaTime);
         game.render(window);
         window.display();
     }
+    ///// End do not touch
 
     return 0;
 }

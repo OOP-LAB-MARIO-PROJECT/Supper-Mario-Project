@@ -7,37 +7,31 @@ public:
 
 	MoveLeft* moveLeftPtr = nullptr;
 	MoveRight* moveRightPtr = nullptr;
+	MoveUp* moveUpPtr = nullptr;
+	MoveDown* moveDownPtr = nullptr;
+	Jump* jumpP = nullptr;
 
-	void setDeltaTime(float deltaTime) {
-		if (moveLeftPtr)
-			moveLeftPtr->setDeltaTime(deltaTime);
-		
-		if (moveRightPtr)
-			moveRightPtr->setDeltaTime(deltaTime);
-	}
+	void setDeltaTime(float deltaTime);
 
-	void setMoveLeft(MoveLeft* ml) {
-		moveLeftPtr = ml;
-	}
-	
-	void setMoveRight(MoveRight* ml) {
-		moveRightPtr = ml;
-	}
+	void setJump(Jump* jm);
+	Jump* getJump() const;
 
-	void moveLeft() {
-		moveLeftPtr->execute();
-	}
+	void jump();
 
-	void moveRight() {
-		moveRightPtr->execute();
-	}
+	void setMoveLeft(MoveLeft* ml);
+	void setMoveRight(MoveRight* ml);
+	void setMoveUp(MoveUp* ml);
+	void setMoveDown(MoveDown* ml);
 
-	MoveLeft* getMvLeft() const {
-		return moveLeftPtr;
-	}
+	void moveLeft();
+	void moveRight();
+	void moveUp();
+	void moveDown();
 
-	MoveRight* getMvRight() const {
-		return moveRightPtr;
-	}
+	MoveLeft* getMvLeft() const;
+	MoveRight* getMvRight() const;
+	MoveUp* getMvUp() const;
+	MoveDown* getMvDown() const;
+
 };
 
