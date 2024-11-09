@@ -34,7 +34,7 @@ void Player::update(float deltaTime) {
 
 void Player::jump(float dt) {
 	if (isOnGround && !isJumping) {
-		setVel({ getVel().x, -80 });
+		setVel({ getVel().x, -300 });
 		isOnGround = false;
 		reachMaxHeight = false;
 		isJumping = true;
@@ -42,9 +42,9 @@ void Player::jump(float dt) {
 	else if (isJumping) {
 		if (reachMaxHeight) return;
 		sf::Vector2f newVel = getVel();
-		newVel += sf::Vector2f(0, -500) * dt;
-		if (newVel.y < -160.f)
-			newVel.y = -160.f, reachMaxHeight = true;
+		newVel += sf::Vector2f(0, -50000) * dt;
+		if (newVel.y < -340.f)
+			newVel.y = -340.f, reachMaxHeight = true;
 		setVel(newVel);
 	}
 }
