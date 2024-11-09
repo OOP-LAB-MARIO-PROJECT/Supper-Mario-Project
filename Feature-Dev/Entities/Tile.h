@@ -3,7 +3,7 @@
 
 
 
-class Tile : public Entity{
+class Tile : public Entity {
 private:
 	sf::RectangleShape hitbox;
 	sf::Vector2f pos;

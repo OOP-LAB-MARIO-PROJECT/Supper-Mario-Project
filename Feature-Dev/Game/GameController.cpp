@@ -26,12 +26,13 @@ void GameController::update(sf::Event& event, float deltaTime) {
 	myCommand.setDeltaTime(deltaTime);
 	keyHandler.handleInput();
 	player->update(deltaTime);
+	myMap->update(deltaTime, player->getPos(), player->getSize());
 }
 
 void GameController::render(sf::RenderWindow& window) {
 	//std::cout << "rendering\n";
-	player->render(window);
 	myMap->renderMap(window);
+	player->render(window);
 	//std::cout << "rendered\n";
 }
 

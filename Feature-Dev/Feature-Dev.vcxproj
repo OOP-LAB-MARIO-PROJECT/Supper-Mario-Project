@@ -138,9 +138,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Entities\Actor.cpp" />
+    <ClCompile Include="Entities\Coin.cpp" />
     <ClCompile Include="Entities\Entity.cpp" />
     <ClCompile Include="Entities\Map.cpp" />
     <ClCompile Include="Entities\Player.cpp" />
+    <ClCompile Include="Entities\Collectable.cpp" />
     <ClCompile Include="Entities\Tile.cpp" />
     <ClCompile Include="Game\Commands\Command.cpp" />
     <ClCompile Include="Game\Commands\CommandController.cpp" />
@@ -156,9 +158,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entities\Actor.h" />
+    <ClInclude Include="Entities\Coin.h" />
     <ClInclude Include="Entities\Entity.h" />
     <ClInclude Include="Entities\Map.h" />
     <ClInclude Include="Entities\Player.h" />
+    <ClInclude Include="Entities\Collectable.h" />
     <ClInclude Include="Entities\Tile.h" />
     <ClInclude Include="Game\Commands\Command.h" />
     <ClInclude Include="Game\Commands\CommandController.h" />

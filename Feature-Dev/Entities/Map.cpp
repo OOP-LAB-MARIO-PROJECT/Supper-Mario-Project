@@ -7,6 +7,9 @@ void Map::addTile(const Tile& tile) {
 void Map::renderMap(sf::RenderWindow& window) {
 	for (const Tile& t : map)
 		t.render(window);
+
+	for (const std::unique_ptr<Collectable>& p : props)
+		p->render(window);
 };
 
 std::vector <sf::RectangleShape> Map::getTiles() {
@@ -16,7 +19,8 @@ std::vector <sf::RectangleShape> Map::getTiles() {
 }
 
 void Map::loadMap(const std::string& filename) {
-	
+	playerPos = { 0, 0 };
+	playerPos = { 32, 32 };
 	std::fstream fin(filename);
 	
 	if (fin.is_open())
@@ -36,10 +40,14 @@ void Map::loadMap(const std::string& filename) {
 		for (int j = 0; j < m; j++) {
 			int t;
 			fin >> t;
-
-			if (t) {
-				pos = { (float)j * size, (float)i * size};
+			pos = { (float)j * size, (float)i * size};
+			
+			if (t == 1) {
 				map.push_back(Tile(pos, { size, size }, false));
+			} 
+
+			if (t == 2) {
+				props.push_back(std::make_unique<Coin>(Coin(pos, { size, size })));
 			}
 		}
 	}
@@ -56,4 +64,25 @@ std::vector <sf::RectangleShape> Map::getNearTiles(sf::Vector2f pos) {
 	}
 	return tiles;
 
+}
+
+void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize) {
+	std::vector <std::unique_ptr<Collectable>> newProps;
+	for (auto& p : props) {
+		p->update(deltaTime);
+		if (p->isCollideWithPlayer(playerPos, playerSize))
+			std::cout << "Touching coins\n";
+		else
+			newProps.push_back(std::move(p));
+	}
+
+	props.clear();
+	for (auto& p : newProps)
+		props.push_back(std::move(p));
+	resetPlayer(ppos, psize);
+}
+
+void Map::resetPlayer(sf::Vector2f pos, sf::Vector2f size) {
+	playerPos = pos;
+	playerSize = size;
 }

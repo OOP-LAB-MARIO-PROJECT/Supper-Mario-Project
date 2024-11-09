@@ -29,6 +29,10 @@ sf::Vector2f Actor::getPos() const {
 	return pos;
 }
 
+sf::Vector2f Actor::getSize() const {
+	return size;
+}
+
 sf::RectangleShape& Actor::getHitbox() {
 	return rect;
 }

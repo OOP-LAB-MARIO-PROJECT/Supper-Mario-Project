@@ -30,6 +30,7 @@ public:
 
 	sf::RectangleShape& getHitbox();
 	sf::Vector2f getPos() const;
+	sf::Vector2f getSize() const;
 	
 	void moveLeft(float dt);
 	void moveRight(float dt);
