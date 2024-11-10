@@ -26,3 +26,15 @@ public:
 	void setDeltaTime(float _deltaTime);
 	virtual void execute() override;
 };
+
+class Jump : public Command {
+private:
+	Player* player;
+	float deltaTime;
+
+public:
+	Jump(Player* _player) : player(_player), deltaTime(0) {};
+
+	void setDeltaTime(float _deltaTime);
+	virtual void execute() override;
+};

@@ -22,3 +22,12 @@ void MoveRight::execute() {
 
 	std::cout << "new pos " << player->getPos().x << ' ' << player->getPos().y << '\n';
 }
+
+
+void Jump::setDeltaTime(float _deltaTime) {
+	deltaTime = _deltaTime;
+}
+
+void Jump::execute() {
+	std::cout << "Jumping hehehe\n";
+}

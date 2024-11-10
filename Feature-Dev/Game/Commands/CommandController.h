@@ -7,6 +7,7 @@ public:
 
 	MoveLeft* moveLeftPtr = nullptr;
 	MoveRight* moveRightPtr = nullptr;
+	Jump* jumpP = nullptr;
 
 	void setDeltaTime(float deltaTime) {
 		if (moveLeftPtr)
@@ -14,6 +15,18 @@ public:
 		
 		if (moveRightPtr)
 			moveRightPtr->setDeltaTime(deltaTime);
+	}
+
+	void setJump(Jump* jm) {
+		jumpP = jm;
+	}
+
+	Jump* getJump() const {
+		return jumpP;
+	}
+
+	void jump() {
+		jumpP->execute();
 	}
 
 	void setMoveLeft(MoveLeft* ml) {
