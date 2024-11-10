@@ -1,7 +1,7 @@
 #include "GameController.h"
 #include "../Entities/Entity.h"
 #include "Commands/PlayerMovement.h"
-
+#include "../Utils/NavigationManager.h"
 void GameController::startGame() {
 
 	//std::cout << player << '\n';
@@ -26,6 +26,7 @@ void GameController::update(sf::Event& event, float deltaTime) {
 	myCommand.setDeltaTime(deltaTime);
 	keyHandler.handleInput();
 	player->update(deltaTime);
+
 }
 
 void GameController::render(sf::RenderWindow& window) {

@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 //#include "MainMenu.h"
-#include "Game/GameController.h"
+#include "../Game/GameController.h"
 class MainMenu;
 using namespace std;
 class NavigationManager
@@ -17,7 +17,7 @@ public:
     static NavigationManager& getInstance();
     Screen getCurrentScreen() const;
     //const string& getCurrentParam() const;
-    void navigate(Screen screen, GameController& game, MainMenu& menu);
+    void navigate(Screen screen);
 private:
     NavigationManager() {}
     Screen currentScreen = Screen::MainMenu; // Default screen
@@ -27,4 +27,3 @@ private:
     NavigationManager(const NavigationManager&) = delete;
     NavigationManager& operator=(const NavigationManager&) = delete;
 };
-

@@ -153,6 +153,8 @@
     <ClCompile Include="Utils\Collision.cpp" />
     <ClCompile Include="Utils\CollisionHandler.cpp" />
     <ClCompile Include="Utils\EntityManager.cpp" />
+    <ClCompile Include="Utils\MainMenu.cpp" />
+    <ClCompile Include="Utils\NavigationManager.cpp" />
     <ClCompile Include="Utils\Physics.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -170,7 +172,12 @@
     <ClInclude Include="Utils\Collision.h" />
     <ClInclude Include="Utils\CollisionHandler.h" />
     <ClInclude Include="Utils\EntityManager.h" />
+    <ClInclude Include="Utils\MainMenu.h" />
+    <ClInclude Include="Utils\NavigationManager.h" />
     <ClInclude Include="Utils\Physics.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Utils\Roboto-Medium.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

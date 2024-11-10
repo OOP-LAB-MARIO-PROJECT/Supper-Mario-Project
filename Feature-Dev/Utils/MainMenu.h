@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "SFML/Graphics.hpp"
-#include "Button.h"
-#include "Game/GameController.h"
+#include "../Button.h" 
+#include "../Game/GameController.h"
 #include "NavigationManager.h"
 #include <iostream>
 #include <vector>
@@ -19,13 +19,16 @@ private:
     vector<Vector2f> textPositions; // Vị trí của các text
     vector<Vector2f> buttonPositions; // Vị trí của các nút
 public:
-    MainMenu(GameController& game);
+    MainMenu();
     ~MainMenu();
     Button getButton(int index);
     void init();
     void loopEvents();
     void drawMenu();
     void runMenu();
+	RenderWindow* getWindow();
+	void setWindow(RenderWindow* window);   
 };
+
 
 

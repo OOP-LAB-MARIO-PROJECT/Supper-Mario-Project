@@ -1,14 +1,24 @@
 ﻿#include "MainMenu.h"
+
+RenderWindow* MainMenu::getWindow()
+{
+	return window;
+}
+
+void MainMenu::setWindow(RenderWindow* window)
+{
+	this->window = window;
+}
 void MainMenu::init()
 {
 	window->create(VideoMode(800, 600), "Main Menu");
-	if (!font.loadFromFile("Roboto-Medium.ttf"))
+	if (!font.loadFromFile("Utils/Roboto-Medium.ttf"))
 	{
 		cout << "Can't load font" << endl;
 	}
 	options = { "Start", "Exit" };
 	textPositions = { Vector2f(300, 250), Vector2f(300, 100) };
-//	buttonPositions = { Vector2f(400, 250), Vector2f(400, 350) };
+	buttonPositions = { Vector2f(400, 250), Vector2f(400, 350) };
 	texts.resize(options.size());
 	for (int i = 0; i < options.size(); i++)
 	{
@@ -25,16 +35,14 @@ Button MainMenu::getButton(int index)
 	return buttons[index];
 }
 
-MainMenu::MainMenu(GameController& game)
+MainMenu::MainMenu()
 {
-	
 	window = new RenderWindow();
-	NavigationManager::Screen screen = NavigationManager::Screen::MainMenu;
 	Button startGame = Button::createButton(Vector2f(200, 100), Vector2f(300, 250), Color::Yellow, Color::Blue, Color::Green,
-		[screen, &game, this]{ NavigationManager::getInstance().navigate(screen, game, *this); }); // thay start bằng hàm vô thẳng vào game
+		[]() { NavigationManager::getInstance().navigate(NavigationManager::Screen::Start); });
 	buttons.push_back(startGame);
 	Button exit = Button::createButton(Vector2f(200, 100), Vector2f(300, 100), Color::Yellow, Color::Blue, Color::Green,
-		[this]() {window->close(); }); //thay exit bằng hàm thoát game
+		[]() { NavigationManager::getInstance().navigate(NavigationManager::Screen::Exit); }); //thay exit bằng hàm thoát game
 	buttons.push_back(exit);
 	init();
 }
@@ -46,6 +54,10 @@ MainMenu::~MainMenu()
 
 void MainMenu::loopEvents()
 {
+	if (NavigationManager::getInstance().getCurrentScreen() != NavigationManager::Screen::MainMenu)
+	{
+		window->close();
+	}
 	Event event;
 	while (window->pollEvent(event))
 	{

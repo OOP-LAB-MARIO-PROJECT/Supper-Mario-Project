@@ -9,15 +9,7 @@ NavigationManager::Screen NavigationManager::getCurrentScreen() const
 {
 	return currentScreen;
 }
-void NavigationManager::navigate(Screen screen, GameController& game, MainMenu& menu)
+void NavigationManager::navigate(Screen screen)
 {
 	currentScreen = screen;
-	switch (currentScreen) 
-	{
-	case Screen::MainMenu:
-		game.startGame();
-		break;
-	default:
-		break;
-	}
 }
