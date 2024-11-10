@@ -1,22 +1,25 @@
 #pragma once
 #include "Actor.h"
-
+#include "Map.h"
 class Player : public Actor
 {
 private:
 	// texture incomming
+	int health = 0;
+	int facing = 1;
+	int moving = 0;
+	Map* map = NULL;
+	bool reachMaxHeight = false;
+	bool isJumping = false;
 
 public:
-	int health = 0;
-	float speed = 10;
-	int facing = 1;
 
-	bool isOnGround = 0;
-	Player(sf::Vector2f _pos, sf::Vector2f _vel, sf::Vector2f _size);
+	Player(sf::Vector2f _pos, sf::Vector2f _size);
 	void setHealth(int _health);
-	void setSpeed(float _speed);
+	void update(float deltatime);
+	void setMap(Map* mp) { map = mp; };
 
-	int getHealth() const;
-	float getSpeed() const;
+	void jump(float dt);
+
 };
 

@@ -42,22 +42,25 @@
     <ClCompile Include="Game\Commands\CommandController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
+    <ClCompile Include="Utils\Physics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MainMenu.cpp">
+    <ClCompile Include="Entities\Tile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="States.cpp">
+    <ClCompile Include="Entities\Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StateMachine.cpp">
+    <ClCompile Include="Utils\CollisionHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
+    <ClCompile Include="Utils\Collision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NavigationManager.cpp">
+    <ClCompile Include="Utils\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\EntityManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,28 +86,26 @@
     <ClInclude Include="Game\Commands\CommandController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Button.h">
+    <ClInclude Include="Utils\Physics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MainMenu.h">
+    <ClInclude Include="Entities\Tile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="States.h">
+    <ClInclude Include="Entities\Map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="StateMachine.h">
+    <ClInclude Include="Utils\CollisionHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="Utils\Collision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NavigationManager.h">
+    <ClInclude Include="Utils\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="..\..\mario - feature dev\Feature-Dev\Roboto-Medium.ttf">
-      <Filter>Source Files</Filter>
-    </Font>
+    <ClInclude Include="Utils\EntityManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
