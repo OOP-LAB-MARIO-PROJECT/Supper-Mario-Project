@@ -18,6 +18,7 @@ void Player::update(float deltaTime) {
 
 	sf::Vector2f vx = getVel();
 	int isCollide = resolveCollideGround(map->getNearTiles(getPos()), deltaTime);
+
 	if (getPos().y > 800) setVel(sf::Vector2f(getVel().x, 0));
 	//if (isCollide) std::cout << "collidiing!!!!!!!1\n";
 	isOnGround = isCollide & (1 << 2);
