@@ -6,6 +6,15 @@
 #include <algorithm>
 #include <iostream>
 
+
+enum dir {
+	TOP = 1,
+	LEFT = 2,
+	BOTTOM = 3,
+	RIGHT = 4,
+	NO_COLLIDE = -1
+};
+
 class Collision {
 #define vt sf::Vector2f
 public:
@@ -44,6 +53,12 @@ public:
 	*/
 
 	vt rectVsTerain(sf::RectangleShape dynamicRect, std::vector <sf::RectangleShape> ground, vt vel, float deltaTime, vt& pos, int& direction);
+
+
+
+	enum dir getDir(std::array<Collision::rect*, 4> contact);
+
+	enum dir dirDynamicRectVsRect(const rect& rDynamic, const float fTimeStep, const rect& rStatic);
 
 #undef vt
 };

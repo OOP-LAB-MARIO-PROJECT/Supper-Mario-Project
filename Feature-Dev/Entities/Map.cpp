@@ -1,4 +1,7 @@
+
 #include "Map.h"
+
+
 
 void Map::addTile(const Tile& tile) {
 	map.push_back(tile);
@@ -10,6 +13,9 @@ void Map::renderMap(sf::RenderWindow& window) {
 
 	for (const std::unique_ptr<Collectable>& p : props)
 		p->render(window);
+
+	for (auto& p : breakableTiles)
+		p->render(window);
 };
 
 std::vector <sf::RectangleShape> Map::getTiles() {
@@ -18,7 +24,7 @@ std::vector <sf::RectangleShape> Map::getTiles() {
 	return ans;
 }
 
-void Map::loadMap(const std::string& filename) {
+void Map::loadMap(const std::string& filename, Player* player) {
 	playerPos = { 0, 0 };
 	playerPos = { 32, 32 };
 	std::fstream fin(filename);
@@ -49,6 +55,10 @@ void Map::loadMap(const std::string& filename) {
 			if (t == 2) {
 				props.push_back(std::make_unique<Coin>(Coin(pos, { size, size })));
 			}
+
+			if (t == 3) {
+				breakableTiles.push_back(std::make_unique<MoveUpTile>(MoveUpTile(pos, { size, size }, false, player)));
+			}
 		}
 	}
 
@@ -62,6 +72,13 @@ std::vector <sf::RectangleShape> Map::getNearTiles(sf::Vector2f pos) {
 		if (std::max(abs(pos.x - p.x), abs(pos.y - p.y)) <= 50)
 			tiles.push_back(t.getHitbox());
 	}
+
+	for (auto& t : breakableTiles) {
+		sf::Vector2f p = t->getHitbox().getPosition();
+		if (std::max(abs(pos.x - p.x), abs(pos.y - p.y)) <= 50)
+			tiles.push_back(t->getHitbox());
+	}
+
 	return tiles;
 
 }
@@ -80,6 +97,11 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize) {
 	for (auto& p : newProps)
 		props.push_back(std::move(p));
 	resetPlayer(ppos, psize);
+
+	for (auto& bt : breakableTiles) {
+		bt->update(deltaTime);
+	}
+
 }
 
 void Map::resetPlayer(sf::Vector2f pos, sf::Vector2f size) {

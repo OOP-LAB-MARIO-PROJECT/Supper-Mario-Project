@@ -25,8 +25,8 @@ void GameController::startGame() {
 void GameController::update(sf::Event& event, float deltaTime) {
 	myCommand.setDeltaTime(deltaTime);
 	keyHandler.handleInput();
-	player->update(deltaTime);
 	myMap->update(deltaTime, player->getPos(), player->getSize());
+	player->update(deltaTime);
 }
 
 void GameController::render(sf::RenderWindow& window) {
