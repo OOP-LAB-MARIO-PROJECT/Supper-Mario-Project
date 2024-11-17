@@ -136,8 +136,6 @@ vt Collision::rectVsTerain(sf::RectangleShape dynamicRect, std::vector <sf::Rect
 			z.emplace_back(tmp, ct);
 	}
 
-	//if (!z.empty())
-	//	std::cout << "Number of collision: " << z.size() << ' ' << ground.size() << '\n';
 
 	std::sort(z.begin(), z.end(), [](const std::pair<rect, float>& a, const std::pair<rect, float>& b)
 		{
@@ -146,7 +144,6 @@ vt Collision::rectVsTerain(sf::RectangleShape dynamicRect, std::vector <sf::Rect
 
 	if (z.empty()) return vel;
 	for (std::pair<rect, float>& j : z) {
-		//if (j.first.pos.y < 600) std::cout << j.first.pos.y << '\n';
 		resolveDynamicRectVsRect(dr, deltaTime, j.first, vel);
 	}
 
@@ -162,4 +159,25 @@ vt Collision::rectVsTerain(sf::RectangleShape dynamicRect, std::vector <sf::Rect
 	return vel;
 }
 
+
+dir Collision::getDir(std::array<Collision::rect*, 4> contact) {
+	if (contact[2]) return dir::TOP;
+	if (contact[1]) return dir::LEFT;
+	if (contact[0]) return dir::BOTTOM;
+	if (contact[3]) return dir::RIGHT;
+	return NO_COLLIDE;
+}
+
+dir Collision::dirDynamicRectVsRect(const rect& rDynamic, const float fTimeStep, const rect& rStatic) {
+
+	vt cp, cn;
+	float ct;
+	if (!dynamicRectVsRect(rDynamic, fTimeStep, rStatic, cp, cn, ct)) return NO_COLLIDE;
+	rect rd = rDynamic, rs = rStatic;
+	resolveDynamicRectVsRect(rd, fTimeStep, rs, cn);
+
+	return getDir(rd.contact);
+}
+
 #undef vt
+

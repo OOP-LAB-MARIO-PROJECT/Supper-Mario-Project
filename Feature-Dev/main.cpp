@@ -25,7 +25,7 @@ int main()
     Player player(sf::Vector2f(50, 50), sf::Vector2f(32, 32));
 
     Map gameMap;
-    gameMap.loadMap("Assets/map.txt");
+    gameMap.loadMap("Assets/map.txt", &player);
 
     player.setMap(&gameMap);
     game.setPlayer(&player);

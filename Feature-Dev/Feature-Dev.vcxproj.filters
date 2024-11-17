@@ -63,13 +63,16 @@
     <ClCompile Include="Utils\EntityManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
+    <ClCompile Include="Entities\Collectable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\MainMenu.cpp">
+    <ClCompile Include="Entities\Coin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\NavigationManager.cpp">
+    <ClCompile Include="Entities\BreakableTile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Entities\MoveUpTile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,17 +119,17 @@
     <ClInclude Include="Utils\EntityManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Button.h">
+    <ClInclude Include="Entities\Collectable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\MainMenu.h">
+    <ClInclude Include="Entities\Coin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\NavigationManager.h">
+    <ClInclude Include="Entities\BreakableTile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="Utils\Roboto-Medium.ttf" />
+    <ClInclude Include="Entities\MoveUpTile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
