@@ -161,7 +161,7 @@ vt Collision::rectVsTerain(sf::RectangleShape dynamicRect, std::vector <sf::Rect
 
 
 dir Collision::getDir(std::array<Collision::rect*, 4> contact) {
-	if (contact[3]) return dir::TOP;
+	if (contact[2]) return dir::TOP;
 	if (contact[1]) return dir::LEFT;
 	if (contact[0]) return dir::BOTTOM;
 	if (contact[3]) return dir::RIGHT;

@@ -75,8 +75,9 @@ std::vector <sf::RectangleShape> Map::getNearTiles(sf::Vector2f pos) {
 
 	for (auto& t : breakableTiles) {
 		sf::Vector2f p = t->getHitbox().getPosition();
-		if (std::max(abs(pos.x - p.x), abs(pos.y - p.y)) <= 50)
+		if (std::max(abs(pos.x - p.x), abs(pos.y - p.y)) <= 50) {
 			tiles.push_back(t->getHitbox());
+		}
 	}
 
 	return tiles;
