@@ -1,6 +1,14 @@
 #pragma once
+
+#ifndef _PLAYER_H_
+#define _PLAYER_H_
+
 #include "Actor.h"
 #include "Map.h"
+#endif
+
+class Map;
+
 class Player : public Actor
 {
 private:
