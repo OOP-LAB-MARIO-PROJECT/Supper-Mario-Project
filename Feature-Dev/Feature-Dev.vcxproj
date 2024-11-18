@@ -157,6 +157,7 @@
     <ClCompile Include="Utils\Collision.cpp" />
     <ClCompile Include="Utils\CollisionHandler.cpp" />
     <ClCompile Include="Utils\EntityManager.cpp" />
+    <ClCompile Include="Utils\GameManager.cpp" />
     <ClCompile Include="Utils\MainMenu.cpp" />
     <ClCompile Include="Utils\NavigationManager.cpp" />
     <ClCompile Include="Utils\Physics.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="Utils\Collision.h" />
     <ClInclude Include="Utils\CollisionHandler.h" />
     <ClInclude Include="Utils\EntityManager.h" />
+    <ClInclude Include="Utils\GameManager.h" />
     <ClInclude Include="Utils\MainMenu.h" />
     <ClInclude Include="Utils\NavigationManager.h" />
     <ClInclude Include="Utils\Physics.h" />

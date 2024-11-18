@@ -1,3 +1,4 @@
+#pragma once
 #include <SFML/Graphics.hpp>
 #include <array>
 #include <vector>
@@ -5,7 +6,7 @@
 #include <iostream>
 
 
-class Camera {
+class	Camera {
 private:
 	sf::View camera;
 	float leftLimit;
