@@ -142,6 +142,7 @@
     <ClCompile Include="Entities\BreakableTile.cpp" />
     <ClCompile Include="Entities\Coin.cpp" />
     <ClCompile Include="Entities\Entity.cpp" />
+    <ClCompile Include="Entities\Groompa.cpp" />
     <ClCompile Include="Entities\Map.cpp" />
     <ClCompile Include="Entities\MoveUpTile.cpp" />
     <ClCompile Include="Entities\Player.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="Entities\BreakableTile.h" />
     <ClInclude Include="Entities\Coin.h" />
     <ClInclude Include="Entities\Entity.h" />
+    <ClInclude Include="Entities\Groompa.h" />
     <ClInclude Include="Entities\Map.h" />
     <ClInclude Include="Entities\MoveUpTile.h" />
     <ClInclude Include="Entities\Player.h" />

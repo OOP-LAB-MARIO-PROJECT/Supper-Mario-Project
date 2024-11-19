@@ -28,8 +28,6 @@ private:
 	
 	KeyExecute keyHandler;
 	CommandController myCommand;
-	EntityManager myEntityManager;
-
 
 	Player* player = NULL;
 	Map* myMap = NULL;
