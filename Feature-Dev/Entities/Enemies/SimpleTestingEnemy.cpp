@@ -3,11 +3,14 @@ SimpleTestingEnemy::SimpleTestingEnemy(sf::Vector2f _pos, sf::Vector2f _size, Ma
 {
 	currentFace = 1;
 	getHitbox().setFillColor(sf::Color::Cyan);
+	setVel({ 100, 0 });
 }
 
 void SimpleTestingEnemy::update(float deltatime) {
 
 	if (isDead()) return;
+	behavior(deltatime);
+
 	if (!isKilled) {
 		sf::Vector2f vx = getVel();
 		int isCollide = resolveCollideGround(getNearTiles(getPos()), deltatime);
@@ -19,14 +22,16 @@ void SimpleTestingEnemy::update(float deltatime) {
 			setFric({ 10, 0 });
 		else
 			setFric({ 0, 0 });
+
+		if (isCollide & 8) currentFace = 1; // , setVel({ 100, getVel().y });
+		if (isCollide & 2) currentFace = -1; // , setVel({ -100, getVel().y });
 	}
 	else {
 		if (getPos().y > 800) kill(), setVel(sf::Vector2f(getVel().x, 0));
 	}
 	
 	// set behavior
-	behavior(deltatime);
-	
+
 	setPos(getPos() + getVel() * deltatime);
 	performPhysics(deltatime);
 }
@@ -38,6 +43,10 @@ void SimpleTestingEnemy::behavior(float deltatime)  {
 
 		return;
 	}
+
+	if (currentFace) setVel({ speed * currentFace, getVel().y });
+	//if (currentFace) setVel({ speed * currentFace, getVel().y });
+
 
 	sf::Vector2f playerPos = getPlayerPos();
 	sf::Vector2f playerSize = getPlayerSize();
@@ -55,7 +64,7 @@ void SimpleTestingEnemy::behavior(float deltatime)  {
 	}
 
 	//sf::Vector2f playerVel = ();
-	
+	if (phase == 1) return;
 	if (currentFace == 1) {
 		if (
 			!isTileAt(getPos() + sf::Vector2f(50, 50))
@@ -67,13 +76,16 @@ void SimpleTestingEnemy::behavior(float deltatime)  {
 		if (!isTileAt(getPos() + sf::Vector2f(-20, 50))
 			)
 			currentFace = 1;
-	}
-	
-	if (currentFace == 1) setVel({ 100, getVel().y });
-	if (currentFace == -1) setVel({ -100, getVel().y });
+	}	
 }
 
 void SimpleTestingEnemy::myKillMethod() {
+	if (phase == 0) {
+		phase = 1;
+		speed = 400;
+		return;
+	}
+
 	isKilled = true;
 	setVel({ getVel().x, -500 });
 }

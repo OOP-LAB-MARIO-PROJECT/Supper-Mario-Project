@@ -6,9 +6,12 @@
 #include "Enemy.h"
 // simple enemy example, not going if under its foot does not have platform
 
-class Enemy;
-class SimpleTestingEnemy : public Enemy {
+class Enemy; 
+class SimpleTestingEnemy : public Enemy { // turtle
 	int currentFace = 1;
+
+	int phase = 0;
+	float speed = 100;
 	bool isKilled = false;
 public:
 	// fixed function
