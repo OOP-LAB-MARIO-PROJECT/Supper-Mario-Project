@@ -105,7 +105,6 @@ bool Collision::resolveDynamicRectVsRect(rect& r_dynamic, const float fTimeStep,
 
 		vt a = vt(std::abs(r_dynamic.vel.x), std::abs(r_dynamic.vel.y));
 		r_dynamic.pos += vt(a.x * contact_normal.x, a.y * contact_normal.y) * (1 - contact_time) * fTimeStep;
-
 		pushback += vt(a.x * contact_normal.x, a.y * contact_normal.y) * (1 - contact_time);
 		//std::cout << "wh is true: " << r_dynamic.pos.x << ' ' << r_dynamic.pos.y << '\n';;
 		return true;
