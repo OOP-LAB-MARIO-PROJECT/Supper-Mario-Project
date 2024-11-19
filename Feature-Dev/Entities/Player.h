@@ -28,6 +28,7 @@ public:
 	void setMap(Map* mp) { map = mp; };
 
 	void jump(float dt);
+	void notJump();
 
 };
 
