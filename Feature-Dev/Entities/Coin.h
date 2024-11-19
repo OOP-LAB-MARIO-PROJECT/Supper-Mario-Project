@@ -1,5 +1,6 @@
 #pragma once
 #include "Collectable.h"
+
 class Coin : public Collectable {
 private:
 	int point = 1;
@@ -9,6 +10,7 @@ public:
 	~Coin() {};
 
 	void update(float dt) override;
+	void applyEffect() override;
 
 };
 

@@ -16,6 +16,8 @@ void Map::renderMap(sf::RenderWindow& window) {
 
 	for (auto& p : breakableTiles)
 		p->render(window);
+
+	myEntities.renderAll(window);
 };
 
 std::vector <sf::RectangleShape> Map::getTiles() {
@@ -52,11 +54,25 @@ void Map::loadMap(const std::string& filename, Player* player) {
 				map.push_back(Tile(pos, { size, size }, false));
 			} 
 
+			if (t == 2) { // coin
 				props.push_back(std::make_unique<Coin>(Coin(pos, { size, size })));
 			}
 
 			if (t == 3) {
 				breakableTiles.push_back(std::make_unique<MoveUpTile>(MoveUpTile(pos, { size, size }, false, player)));
+			}
+
+			if (t == 4) { // power up
+
+			}
+
+			if (t == 5) { // enemies
+
+			}
+
+			if (t == 9) { // groompa
+				//std::make_unique<Entity>(Groompa(pos, { size, size }));
+				myEntities.addEntity(std::make_unique<Groompa>(Groompa(pos, {size, size}, this)));
 			}
 		}
 	}
@@ -88,18 +104,23 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize) {
 	for (auto& p : props) {
 		p->update(deltaTime);
 		if (p->isCollideWithPlayer(playerPos, playerSize))
+			p->applyEffect();
 		else
 			newProps.push_back(std::move(p));
 	}
 
 	props.clear();
+
 	for (auto& p : newProps)
 		props.push_back(std::move(p));
+	
 	resetPlayer(ppos, psize);
 
 	for (auto& bt : breakableTiles) {
 		bt->update(deltaTime);
 	}
+
+	myEntities.updateAll(deltaTime);
 
 }
 

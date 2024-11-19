@@ -1,7 +1,7 @@
 #include "GameController.h"
 #include "../Entities/Entity.h"
 #include "Commands/PlayerMovement.h"
-
+#include "../Utils/NavigationManager.h"
 void GameController::startGame() {
 
 	//std::cout << player << '\n';

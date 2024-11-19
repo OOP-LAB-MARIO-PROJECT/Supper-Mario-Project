@@ -8,12 +8,16 @@
 #include "Coin.h"
 #include "BreakableTile.h"
 #include "MoveUpTile.h"
+#include "../Utils/EntityManager.h"
 #include <vector>
 #include <set>
 #include <fstream>
 #include <iostream>
 #include <memory>
 #include "Player.h"
+#include "Groompa.h"
+
+
 
 #endif
 
@@ -22,8 +26,11 @@ class Player;
 class Map {
 private:
 	std::vector<Tile> map;
+	
 	std::vector<std::unique_ptr<Collectable>> props;
 	std::vector<std::unique_ptr<BreakableTile>> breakableTiles;
+	EntityManager myEntities;
+
 	sf::Vector2f playerPos;
 	sf::Vector2f playerSize;
 

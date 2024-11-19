@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include "../Utils/Collision.h"
 #include "SFML/Graphics.hpp"
+//#include "SFML/Audio.hpp"
 
 class Collectable : public Entity, public Collision
 {
@@ -22,6 +23,7 @@ public:
 
 	void render(sf::RenderWindow& window) const;
 	virtual void update(float deltaTime) = 0;
+	virtual void applyEffect() = 0;
 	//sf::RectangleShape getPlayer() const {};
 	bool isCollideWithPlayer(sf::Vector2f pos, sf::Vector2f size);
 };
