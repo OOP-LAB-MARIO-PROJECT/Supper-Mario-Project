@@ -29,6 +29,10 @@ void Player::update(float deltaTime) {
 		setFric({ 0, 0 });
 
 	setPos(getPos() + getVel() * deltaTime);
+	if (isCollide & 5) { // touching top or bottom
+		setVel({ getVel().x, 0 });
+	}
+
 	performPhysics(deltaTime);
 }
 
