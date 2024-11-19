@@ -15,6 +15,7 @@
 
 #include "../Utils/Collision.h"
 #include "../Utils/EntityManager.h"
+#include "../Utils/NavigationManager.h"
 
 /*
 	Main game logic, singleton instance
@@ -27,8 +28,6 @@ private:
 	
 	KeyExecute keyHandler;
 	CommandController myCommand;
-	EntityManager myEntityManager;
-
 
 	Player* player = NULL;
 	Map* myMap = NULL;
