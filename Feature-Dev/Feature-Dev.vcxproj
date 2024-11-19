@@ -141,6 +141,8 @@
     <ClCompile Include="Entities\Actor.cpp" />
     <ClCompile Include="Entities\BreakableTile.cpp" />
     <ClCompile Include="Entities\Coin.cpp" />
+    <ClCompile Include="Entities\Enemies\Enemy.cpp" />
+    <ClCompile Include="Entities\Enemies\SimpleTestingEnemy.cpp" />
     <ClCompile Include="Entities\Entity.cpp" />
     <ClCompile Include="Entities\Groompa.cpp" />
     <ClCompile Include="Entities\Map.cpp" />
@@ -168,6 +170,8 @@
     <ClInclude Include="Entities\Actor.h" />
     <ClInclude Include="Entities\BreakableTile.h" />
     <ClInclude Include="Entities\Coin.h" />
+    <ClInclude Include="Entities\Enemies\Enemy.h" />
+    <ClInclude Include="Entities\Enemies\SimpleTestingEnemy.h" />
     <ClInclude Include="Entities\Entity.h" />
     <ClInclude Include="Entities\Groompa.h" />
     <ClInclude Include="Entities\Map.h" />

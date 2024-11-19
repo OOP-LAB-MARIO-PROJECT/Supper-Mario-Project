@@ -41,13 +41,24 @@ void Map::loadMap(const std::string& filename, Player* player) {
 
 	sf::Vector2f pos(0, 0);
 	std::cout << n << ' ' << m << '\n';
+	
+	m_row = n; m_col = m;
 
 	const int size = 34;
+	m_block_size = 34;
+
+	tilesMap.reserve(n);
+	tilesMap.resize(n);
+	for (auto& row : tilesMap)
+		row.reserve(m), row.resize(m);
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
 			int t;
 			fin >> t;
+
+			tilesMap[i][j] = t;
+
 			pos = { (float)j * size, (float)i * size};
 			
 			if (t == 1) {
@@ -68,6 +79,11 @@ void Map::loadMap(const std::string& filename, Player* player) {
 
 			if (t == 5) { // enemies
 
+			}
+
+			if (t == 7) { // test enemies
+				std::cout << "added test enemies\n";
+				myEntities.addEntity(std::make_unique<SimpleTestingEnemy>(SimpleTestingEnemy(pos, { size, size }, this)));
 			}
 
 			if (t == 9) { // groompa
@@ -96,10 +112,9 @@ std::vector <sf::RectangleShape> Map::getNearTiles(sf::Vector2f pos) {
 	}
 
 	return tiles;
-
 }
 
-void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize) {
+void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize, sf::Vector2f pvel) {
 	std::vector <std::unique_ptr<Collectable>> newProps;
 	for (auto& p : props) {
 		p->update(deltaTime);
@@ -114,7 +129,7 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize) {
 	for (auto& p : newProps)
 		props.push_back(std::move(p));
 	
-	resetPlayer(ppos, psize);
+	resetPlayer(ppos, psize, pvel);
 
 	for (auto& bt : breakableTiles) {
 		bt->update(deltaTime);
@@ -124,7 +139,29 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize) {
 
 }
 
-void Map::resetPlayer(sf::Vector2f pos, sf::Vector2f size) {
+void Map::resetPlayer(sf::Vector2f pos, sf::Vector2f size, sf::Vector2f vel) {
 	playerPos = pos;
 	playerSize = size;
+	playerVel = vel;
+}
+
+sf::Vector2f Map::getPlayerPos() const {
+	return playerPos;
+}
+
+sf::Vector2f Map::getPlayerSize() const {
+	return playerSize;
+}
+
+sf::Vector2f Map::getPlayerVel() const {
+	return playerVel;
+}
+
+bool Map::isTileAt(sf::Vector2f pos) const {
+	int x = pos.x, y = pos.y;
+	x /= m_block_size;
+	y /= m_block_size;
+	
+	if (x >= m_col || y >= m_row) return false;
+	return tilesMap[y][x] != 0;
 }

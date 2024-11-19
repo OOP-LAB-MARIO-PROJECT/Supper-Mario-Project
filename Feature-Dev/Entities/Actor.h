@@ -14,6 +14,7 @@ private:
 	sf::RectangleShape rect;
 	sf::Vector2f pos;
 	sf::Vector2f size;
+	// spritesheet
 protected:
 	bool isOnGround = false;
 	int facing = 0;
