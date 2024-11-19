@@ -52,13 +52,12 @@ void Actor::moveRight(float dt) {
 
 
 int Actor::resolveCollideGround(std::vector <sf::RectangleShape> vi, float deltaTime) {
-	
-	
 	sf::Vector2f pos = getPos();
 	sf::Vector2f vel = getVel();
 	int dir = 0;
 	sf::Vector2f expected = rectVsTerain(rect, vi, getVel(), deltaTime, pos, dir);
 	if (expected == getVel()) return 0;
+<<<<<<< HEAD
 
 	setVel(expected);
 	//if (dir & (1 | 4)) setVel(sf::Vector2f{ getVel().x, 0 });
