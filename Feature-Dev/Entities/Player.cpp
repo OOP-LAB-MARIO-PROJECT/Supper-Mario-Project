@@ -24,7 +24,7 @@ void Player::update(float deltaTime) {
 	isOnGround = isCollide & (1 << 2);
 	
 	if (isOnGround)
-		setFric({ 10, 0 }), isJumping = false;
+		setFric({ 20, 0 }), isJumping = false;
 	else
 		setFric({ 0, 0 });
 
@@ -48,4 +48,12 @@ void Player::jump(float dt) {
 			newVel.y = -340.f, reachMaxHeight = true;
 		setVel(newVel);
 	}
+}
+
+void Player::notJump() {
+	if (!isJumping) return;
+	isJumping = false;
+	//reachMaxHeight = true;
+	setVel({ getVel().x, getVel().y / 3});
+	
 }

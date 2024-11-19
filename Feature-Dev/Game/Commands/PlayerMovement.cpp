@@ -33,6 +33,10 @@ void Jump::execute() {
 	player->jump(deltaTime);
 }
 
+void Jump::deExecute() {
+	player->notJump();
+}
+
 void MoveUp::setDeltaTime(float _deltaTime) {
 	deltaTime = _deltaTime;
 }
