@@ -27,7 +27,11 @@ private:
 	
 	KeyExecute keyHandler;
 	CommandController myCommand;
+<<<<<<< HEAD
 	EntityManager myEntityManager;
+=======
+
+>>>>>>> 2b92a4931fe39f7f76827f3af4a2f7ee0151fdbb
 	Player* player = NULL;
 	Map* myMap = NULL;
 

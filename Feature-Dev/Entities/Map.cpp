@@ -52,7 +52,6 @@ void Map::loadMap(const std::string& filename, Player* player) {
 				map.push_back(Tile(pos, { size, size }, false));
 			} 
 
-			if (t == 2) {
 				props.push_back(std::make_unique<Coin>(Coin(pos, { size, size })));
 			}
 
@@ -89,7 +88,6 @@ void Map::update(float deltaTime, sf::Vector2f ppos, sf::Vector2f psize) {
 	for (auto& p : props) {
 		p->update(deltaTime);
 		if (p->isCollideWithPlayer(playerPos, playerSize))
-			std::cout << "Touching coins\n";
 		else
 			newProps.push_back(std::move(p));
 	}

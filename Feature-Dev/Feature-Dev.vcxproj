@@ -137,10 +137,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Entities\Actor.cpp" />
     <ClCompile Include="Entities\BreakableTile.cpp" />
     <ClCompile Include="Entities\Coin.cpp" />
     <ClCompile Include="Entities\Entity.cpp" />
+    <ClCompile Include="Entities\Groompa.cpp" />
     <ClCompile Include="Entities\Map.cpp" />
     <ClCompile Include="Entities\MoveUpTile.cpp" />
     <ClCompile Include="Entities\Player.cpp" />
@@ -156,13 +158,18 @@
     <ClCompile Include="Utils\Collision.cpp" />
     <ClCompile Include="Utils\CollisionHandler.cpp" />
     <ClCompile Include="Utils\EntityManager.cpp" />
+    <ClCompile Include="Utils\GameManager.cpp" />
+    <ClCompile Include="Utils\MainMenu.cpp" />
+    <ClCompile Include="Utils\NavigationManager.cpp" />
     <ClCompile Include="Utils\Physics.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Entities\Actor.h" />
     <ClInclude Include="Entities\BreakableTile.h" />
     <ClInclude Include="Entities\Coin.h" />
     <ClInclude Include="Entities\Entity.h" />
+    <ClInclude Include="Entities\Groompa.h" />
     <ClInclude Include="Entities\Map.h" />
     <ClInclude Include="Entities\MoveUpTile.h" />
     <ClInclude Include="Entities\Player.h" />
@@ -176,7 +183,13 @@
     <ClInclude Include="Utils\Collision.h" />
     <ClInclude Include="Utils\CollisionHandler.h" />
     <ClInclude Include="Utils\EntityManager.h" />
+    <ClInclude Include="Utils\GameManager.h" />
+    <ClInclude Include="Utils\MainMenu.h" />
+    <ClInclude Include="Utils\NavigationManager.h" />
     <ClInclude Include="Utils\Physics.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Utils\Roboto-Medium.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
