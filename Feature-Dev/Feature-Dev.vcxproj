@@ -164,6 +164,9 @@
     <ClCompile Include="Utils\MainMenu.cpp" />
     <ClCompile Include="Utils\NavigationManager.cpp" />
     <ClCompile Include="Utils\Physics.cpp" />
+    <ClCompile Include="Utils\TextureManager.cpp" />
+    <ClCompile Include="Utils\Tileset.cpp" />
+    <ClCompile Include="Utils\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
@@ -191,6 +194,9 @@
     <ClInclude Include="Utils\MainMenu.h" />
     <ClInclude Include="Utils\NavigationManager.h" />
     <ClInclude Include="Utils\Physics.h" />
+    <ClInclude Include="Utils\TextureManager.h" />
+    <ClInclude Include="Utils\Tileset.h" />
+    <ClInclude Include="Utils\tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Utils\Roboto-Medium.ttf" />

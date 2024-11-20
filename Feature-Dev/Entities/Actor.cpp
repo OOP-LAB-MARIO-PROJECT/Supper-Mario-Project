@@ -2,7 +2,13 @@
 
 void Actor::render(sf::RenderWindow& window) const {
 	//std::cout << "Rendering player!" << std::endl;
-	window.draw(rect);
+
+	if (isRenderHitbox)
+		window.draw(rect);
+	if (isRenderSprite) {
+		std::cout << "texture point: " << (int)sprite.getTexture() << '\n';
+		window.draw(sprite);
+	}
 }
 
 Actor::Actor(sf::Vector2f _pos, sf::Vector2f _size) :
@@ -11,6 +17,8 @@ Actor::Actor(sf::Vector2f _pos, sf::Vector2f _size) :
 	rect.setFillColor(sf::Color::Green);
 	rect.setPosition(pos);
 	rect.setSize(size);
+	sprite.setPosition(pos);
+
 	std::cout << "made the player green\n";
 };
 
@@ -18,6 +26,7 @@ Actor::Actor(sf::Vector2f _pos, sf::Vector2f _size) :
 void Actor::setPos(sf::Vector2f _pos) {
 	pos = _pos;
 	rect.setPosition(pos);
+	sprite.setPosition(pos);
 }
 
 void Actor::setSize(sf::Vector2f _size) {
@@ -59,4 +68,8 @@ int Actor::resolveCollideGround(std::vector <sf::RectangleShape> vi, float delta
 	if (expected == getVel()) return 0;
 	setVel(expected);
 	return dir;
+}
+
+void Actor::setTexture(const std::string& sourceName, const std::string& rectName) {
+	TextureManager::getInstance().setTextureRect(sprite, sourceName, rectName);
 }

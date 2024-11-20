@@ -28,7 +28,7 @@ std::vector <sf::RectangleShape> Map::getTiles() {
 
 void Map::loadMap(const std::string& filename, Player* player) {
 	playerPos = { 0, 0 };
-	playerPos = { 32, 32 };
+	playerPos = { 16, 16 };
 	std::fstream fin(filename);
 	
 	if (fin.is_open())
@@ -44,8 +44,8 @@ void Map::loadMap(const std::string& filename, Player* player) {
 	
 	m_row = n; m_col = m;
 
-	const int size = 34;
-	m_block_size = 34;
+	const int size = 16;
+	m_block_size = 16;
 
 	tilesMap.reserve(n);
 	tilesMap.resize(n);

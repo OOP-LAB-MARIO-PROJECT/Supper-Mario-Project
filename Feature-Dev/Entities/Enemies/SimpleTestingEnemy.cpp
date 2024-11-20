@@ -65,15 +65,16 @@ void SimpleTestingEnemy::behavior(float deltatime)  {
 
 	//sf::Vector2f playerVel = ();
 	if (phase == 1) return;
+
 	if (currentFace == 1) {
 		if (
-			!isTileAt(getPos() + sf::Vector2f(50, 50))
+			!isTileAt(getPos() + sf::Vector2f(25, 25))
 			)
 			currentFace = -1;
 	}
 
 	if (currentFace == -1) {
-		if (!isTileAt(getPos() + sf::Vector2f(-20, 50))
+		if (!isTileAt(getPos() + sf::Vector2f(-10, 25))
 			)
 			currentFace = 1;
 	}	
@@ -82,10 +83,10 @@ void SimpleTestingEnemy::behavior(float deltatime)  {
 void SimpleTestingEnemy::myKillMethod() {
 	if (phase == 0) {
 		phase = 1;
-		speed = 400;
+		speed = 200;
 		return;
 	}
 
 	isKilled = true;
-	setVel({ getVel().x, -500 });
+	setVel({ getVel().x, -250 });
 }

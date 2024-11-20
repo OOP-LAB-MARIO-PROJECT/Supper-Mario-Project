@@ -6,6 +6,8 @@
 #include "Camera.h"
 #include "../Entities/Map.h"
 #include <string>
+#include "TextureManager.h"
+
 using namespace std;
 
 class GameManager
@@ -18,6 +20,9 @@ private:
 	Map* gameMap = NULL;
 	sf::RenderWindow* window;
 	Player* player = NULL;
+    TextureManager* myTextureManager = NULL;
+
+
 public:
 	~GameManager() {
 //		delete game;
@@ -28,8 +33,14 @@ public:
 	}
 
 	void init(sf::RenderWindow& window) {
-		game = &GameController::getInstance();
-        player = new Player(sf::Vector2f(50, 50), sf::Vector2f(32, 32));
+        // load texture first
+        myTextureManager = &TextureManager::getInstance();
+        myTextureManager->loadNewTexture("Assets/Texture/Texture_Pack/mario.tsx", "Assets/Texture/Texture_Pack/mario.png");
+
+
+
+        game = &GameController::getInstance();
+        player = new Player(sf::Vector2f(50, 50), sf::Vector2f(16, 16));
 
         gameMap = new Map();
         gameMap->loadMap("Assets/map.txt", player);
@@ -40,6 +51,7 @@ public:
         camera = new Camera(window);
         game->startGame();
 		this->window = &window;
+
 	}
 
 	void play(float dt) {
@@ -60,7 +72,6 @@ public:
         game->update(event, dt);
         game->render(*window);
         window->display();
-
 	}
 };
 

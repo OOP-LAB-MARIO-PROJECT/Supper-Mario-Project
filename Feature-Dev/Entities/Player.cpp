@@ -6,7 +6,9 @@ void Player::setHealth(int _health) {
 
 Player::Player(sf::Vector2f _pos, sf::Vector2f _size) :
 	Actor(_pos, _size) {
-
+	setRenderSprite(true);
+	setRenderHitbox(false);
+	setTexture("mario", "right-small-mario-1");
 };
 
 void Player::update(float deltaTime) {
