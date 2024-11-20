@@ -17,7 +17,9 @@ private:
 	// spritesheet
 protected:
 	bool isOnGround = false;
+	bool autoSpriteFollowHitbox = true;
 	int facing = 0;
+
 
 public:
 
@@ -26,6 +28,7 @@ public:
 
 	void render(sf::RenderWindow& window) const override;
 	void setPos(sf::Vector2f pos);
+	void setSpritePos(sf::Vector2f pos);
 	void setSize(sf::Vector2f size);
 	void setSpritePosition(sf::Vector2f pos) { sprite.setPosition(pos); }
 	void setTexture(const std::string& sourceName, const std::string& rectName);

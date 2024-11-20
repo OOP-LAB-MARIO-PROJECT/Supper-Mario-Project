@@ -26,14 +26,15 @@ void Player::update(float deltaTime) {
 	isOnGround = isCollide & (1 << 2);
 	
 	if (isOnGround)
-		setFric({ 20, 0 }), isJumping = false;
+		setFric({ 15, 0 }), isJumping = false;
 	else
 		setFric({ 0, 0 });
 
 	setPos(getPos() + getVel() * deltaTime);
+	setSpritePos(getPos() - sf::Vector2f{ 2, 2 });
 
 	if (isCollide & 5) // touch top or bottom
-		setVel({ getVel().x, 0 });
+		setVel({ getVel().x, 0 }), isJumping = false;
 
 	performPhysics(deltaTime);
 }
@@ -41,7 +42,7 @@ void Player::update(float deltaTime) {
 
 void Player::jump(float dt) {
 	if (isOnGround && !isJumping) {
-		setVel({ getVel().x, -300 });
+		setVel({ getVel().x, -170 });
 		isOnGround = false;
 		reachMaxHeight = false;
 		isJumping = true;
@@ -49,9 +50,9 @@ void Player::jump(float dt) {
 	else if (isJumping) {
 		if (reachMaxHeight) return;
 		sf::Vector2f newVel = getVel();
-		newVel += sf::Vector2f(0, -50000) * dt;
-		if (newVel.y < -340.f)
-			newVel.y = -340.f, reachMaxHeight = true;
+		newVel += sf::Vector2f(0, -40000) * dt;
+		if (newVel.y < -178.f)
+			newVel.y = -178.f, reachMaxHeight = true;
 		setVel(newVel);
 	}
 }

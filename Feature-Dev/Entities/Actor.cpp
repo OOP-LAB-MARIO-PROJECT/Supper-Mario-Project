@@ -5,14 +5,12 @@ void Actor::render(sf::RenderWindow& window) const {
 
 	if (isRenderHitbox)
 		window.draw(rect);
-	if (isRenderSprite) {
-		std::cout << "texture point: " << (int)sprite.getTexture() << '\n';
+	if (isRenderSprite) 
 		window.draw(sprite);
-	}
 }
 
 Actor::Actor(sf::Vector2f _pos, sf::Vector2f _size) :
-	pos(_pos), size(_size), Physics({ 0, 0 }, { 0, 520 })
+	pos(_pos), size(_size), Physics({ 0, 0 }, { 0, 260 })
 {
 	rect.setFillColor(sf::Color::Green);
 	rect.setPosition(pos);
@@ -26,8 +24,13 @@ Actor::Actor(sf::Vector2f _pos, sf::Vector2f _size) :
 void Actor::setPos(sf::Vector2f _pos) {
 	pos = _pos;
 	rect.setPosition(pos);
+	if (autoSpriteFollowHitbox) sprite.setPosition(pos);
+}
+
+void Actor::setSpritePos(sf::Vector2f pos) {
 	sprite.setPosition(pos);
 }
+
 
 void Actor::setSize(sf::Vector2f _size) {
 	size = _size;
@@ -49,13 +52,13 @@ sf::RectangleShape& Actor::getHitbox() {
 void Actor::moveLeft(float dt) {
 
 	facing = -1;
-	setVel({ -140, getVel().y});
+	setVel({ -70, getVel().y});
 }
 
 void Actor::moveRight(float dt) {
 
 	facing = 1;
-	setVel({ 140, getVel().y });
+	setVel({ 70, getVel().y });
 }
 
 

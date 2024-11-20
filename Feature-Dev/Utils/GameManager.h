@@ -40,7 +40,7 @@ public:
 
 
         game = &GameController::getInstance();
-        player = new Player(sf::Vector2f(50, 50), sf::Vector2f(16, 16));
+        player = new Player(sf::Vector2f(50, 50), sf::Vector2f(14, 14));
 
         gameMap = new Map();
         gameMap->loadMap("Assets/map.txt", player);
