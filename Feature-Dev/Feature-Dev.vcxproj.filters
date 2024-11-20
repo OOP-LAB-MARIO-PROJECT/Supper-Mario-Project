@@ -191,6 +191,9 @@
     <ClInclude Include="Utils\tinyxml2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\GameController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Utils\Roboto-Medium.ttf" />
