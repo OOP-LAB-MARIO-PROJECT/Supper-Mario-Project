@@ -158,12 +158,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utils\Camera.cpp" />
     <ClCompile Include="Utils\Collision.cpp" />
-    <ClCompile Include="Utils\CollisionHandler.cpp" />
     <ClCompile Include="Utils\EntityManager.cpp" />
     <ClCompile Include="Utils\GameManager.cpp" />
     <ClCompile Include="Utils\MainMenu.cpp" />
     <ClCompile Include="Utils\NavigationManager.cpp" />
     <ClCompile Include="Utils\Physics.cpp" />
+    <ClCompile Include="Utils\Scence.cpp" />
     <ClCompile Include="Utils\TextureManager.cpp" />
     <ClCompile Include="Utils\Tileset.cpp" />
     <ClCompile Include="Utils\tinyxml2.cpp" />
@@ -189,12 +189,12 @@
     <ClInclude Include="Game\GameController.h" />
     <ClInclude Include="Utils\Camera.h" />
     <ClInclude Include="Utils\Collision.h" />
-    <ClInclude Include="Utils\CollisionHandler.h" />
     <ClInclude Include="Utils\EntityManager.h" />
     <ClInclude Include="Utils\GameManager.h" />
     <ClInclude Include="Utils\MainMenu.h" />
     <ClInclude Include="Utils\NavigationManager.h" />
     <ClInclude Include="Utils\Physics.h" />
+    <ClInclude Include="Utils\Scence.h" />
     <ClInclude Include="Utils\TextureManager.h" />
     <ClInclude Include="Utils\Tileset.h" />
     <ClInclude Include="Utils\tinyxml2.h" />
